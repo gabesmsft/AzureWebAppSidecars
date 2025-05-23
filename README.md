@@ -18,7 +18,7 @@ The backend container has following GET routes:
 
 | Route | Description |
 | ----- | ----------- |
-| /backendpoint | Returns the value of the backendfood environment variable if present, otherwise returns "potato" in the response |
+| /backendpoint | Returns the value of the backendfood environment variable if present in the backend container, otherwise returns "potato" in the response |
 | /writebackendfile | Writes "pickled lasagna" to a file /backendvolume/directory3/myfile.txt. In effect, this writes to directory3 directory under the /directory1/directory2 volume mount subpath. |
 
 The frontend container has following GET routes:
@@ -29,6 +29,7 @@ The frontend container has following GET routes:
 | /writebackendfile | Makes a request to the backend container's /writebackendfile route so that the backend container writes the file to the backend container's volume mount. |
 | /readbackendfile | Reads and returns the contents of /frontendvolume/myfile1.txt if it exists, otherwise returns an error reading file. In effect, this reads from the /directory1/directory2/directory3 volume mount subpath. |
 | /deletebackendfile | Deletes the file /frontendvolume/myfile1.txt. From the backend container's perspective, this deletes /backendvolume/directory3/myfile.txt. |
+| / | Returns the value of the food environment variable if present in the Web App, otherwise returns "cornflakes". |
 
 To test the application, append the frontend route that you want to test to the end of the Web App's URL.
 
